@@ -1,0 +1,2 @@
+/* Podcasts CSS Styles - Add before closing </style> tag */
+.podcasts-container { max-width: 800px; margin: 0 auto; }

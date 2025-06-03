@@ -704,7 +704,6 @@
                     <div class="nav-item" onclick="showSection('projects', this)">Projects</div>
                     <div class="nav-item" onclick="showSection('skills', this)">Skills</div>
                     <div class="nav-item" onclick="showSection('education', this)">Education</div>
-                    <div class="nav-item" onclick="showSection('podcasts', this)">Podcasts</div>
                     <div class="nav-item" onclick="showSection('substack', this)">Substack</div>
                     <div class="nav-item" onclick="showSection('life', this)">Life</div>
                 </div>
