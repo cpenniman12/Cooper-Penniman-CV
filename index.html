@@ -322,7 +322,7 @@
         }
 
         .skill-item {
-            padding: 16px 20px;
+            padding: 24px 28px;
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 8px;
@@ -330,6 +330,10 @@
             font-size: 0.9rem;
             color: #d1d5db;
             transition: all 0.2s ease;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .skill-item:hover {
@@ -754,16 +758,26 @@
             <div class="profile-section">
                 <img src="assets/images/profile-new.jpg" alt="Profile" class="profile-image">
                 <h1 class="name">Cooper Penniman</h1>
-                <p class="tagline">AI Product Developer & Technical Consultant</p>
+                <div class="typewriter-container">
+                    <span id="typewriter-text" style="font-size:1.25rem; color:#9ca3af; font-weight:400;"></span>
+                </div>
                 <div class="bio">
-                    I want to leverage AI to solve real problems. UMass Amherst alum living in NYC. Outside of work passionate about promoting AI in education, watching the Celtics, and traveling.
+                    I want to leverage AI to solve real problems. Outside of work passionate about promoting AI in education, watching the Celtics, and traveling.
                 </div>
                 
                 <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/cooper-penniman/" class="contact-link" target="_blank">LinkedIn</a>
-                    <a href="mailto:cooperpenniman@gmail.com" class="contact-link">Email</a>
-                    <a href="https://github.com/cooperpenniman" class="contact-link" target="_blank">GitHub</a>
-                    <a href="https://cooperpenniman.substack.com" class="contact-link" target="_blank">Substack</a>
+                    <a class="contact-link" href="mailto:cooperpenniman@gmail.com" title="Email">
+                        <svg style="vertical-align:middle; margin-right:6px;" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>
+                        cooperpenniman@gmail.com
+                    </a>
+                    <span class="contact-link" title="Location">
+                        <svg style="vertical-align:middle; margin-right:6px;" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        New York
+                    </span>
+                    <a class="contact-link" href="https://www.linkedin.com/in/cooper-penniman/" target="_blank" title="LinkedIn">
+                        <svg style="vertical-align:middle; margin-right:6px;" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v5.62z"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
             
@@ -871,16 +885,16 @@
                     <div class="skills-grid">
                         <div class="skill-item">LangGraph</div>
                         <div class="skill-item">MCP</div>
-                        <div class="skill-item">RAG</div>
                         <div class="skill-item">Prompt Engineering</div>
                         <div class="skill-item">SQL</div>
                         <div class="skill-item">Python</div>
                         <div class="skill-item">Jira</div>
-                        <div class="skill-item">Microsoft BI</div>
-                        <div class="skill-item">PowerBI</div>
-                        <div class="skill-item">Oracle</div>
-                        <div class="skill-item">XSL</div>
                         <div class="skill-item">ETL</div>
+                        <div class="skill-item">Client Training</div>
+                        <div class="skill-item">Vector Databases</div>
+                        <div class="skill-item">Usage Tracking</div>
+                        <div class="skill-item">Requirements Gathering</div>
+                        <div class="skill-item">Cursor</div>
                     </div>
                 </div>
             </div>
@@ -889,17 +903,10 @@
                 <h2 class="section-title">Education</h2>
                 <div class="education-list">
                     <div class="education-item">
-                        <div class="degree">B.S. in Mathematics (Statistics Concentration)</div>
+                        <div class="degree">B.S. in Mathematics (Statistics Concentration); B.A. Economics</div>
                         <div class="school">University of Massachusetts, Amherst</div>
                         <div class="date">September 2017 - June 2021</div>
-                        <p class="description">Conducted semester-long research project analyzing the impact of financial transaction tax with Professor Douglass Cliggot.</p>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="degree">B.A. Economics</div>
-                        <div class="school">University of Massachusetts, Amherst</div>
-                        <div class="date">September 2017 - June 2021</div>
-                        <p class="description">Double major focused on quantitative analysis and economic theory.</p>
+                        <p class="description">Conducted semester-long research project analyzing the impact of financial transaction tax with Professor Douglass Cliggot. Double major focused on quantitative analysis and economic theory.</p>
                     </div>
                 </div>
             </div>
@@ -971,21 +978,21 @@
                     <div class="life-image-container">
                         <img src="assets/images/life-nyc.png" alt="Moving to New York" class="life-image">
                         <div class="life-image-overlay">
-                            <div class="overlay-text">moving to new york from boston in fall of 2023</div>
+                            <div class="overlay-text">Moving to New York from Boston in fall of 2023.</div>
                         </div>
                     </div>
                     
                     <div class="life-image-container">
                         <img src="assets/images/life-shanghai.png" alt="Shanghai Skyline" class="life-image">
                         <div class="life-image-overlay">
-                            <div class="overlay-text">View of the Shanghai Skyline from my trip in china in december 2024</div>
+                            <div class="overlay-text">View of the Shanghai Skyline from my trip to China in December, 2024.</div>
                         </div>
                     </div>
 
                     <div class="life-image-container teals-image">
                         <img src="assets/images/IMG_1902.jpg" alt="Certificates of appreciation from Microsoft Teals" class="life-image">
                         <div class="life-image-overlay">
-                            <div class="overlay-text">Certificates of appreciation from Microsoft Teals - A volunteer organization connecting technology professionals and computer science students</div>
+                            <div class="overlay-text">Certificates of appreciation from Microsoft Teals - A volunteer organization connecting technology professionals and computer science students.</div>
                         </div>
                     </div>
                 </div>
@@ -1064,6 +1071,34 @@
             // Initialize carousel
             updateCarousel();
         });
+
+        // Typewriter effect
+        const testText = "This is a test typing animation.";
+        const typewriter = document.getElementById('typewriter-text');
+        let i = 0;
+        let isDeleting = false;
+        let speed = 80;
+
+        function typeLoop() {
+            if (!isDeleting && i <= testText.length) {
+                typewriter.textContent = testText.substring(0, i);
+                i++;
+                if (i > testText.length) {
+                    setTimeout(() => { isDeleting = true; typeLoop(); }, 1000);
+                    return;
+                }
+            } else if (isDeleting && i >= 0) {
+                typewriter.textContent = testText.substring(0, i);
+                i--;
+                if (i < 0) {
+                    isDeleting = false;
+                    setTimeout(typeLoop, 500);
+                    return;
+                }
+            }
+            setTimeout(typeLoop, speed);
+        }
+        document.addEventListener('DOMContentLoaded', typeLoop);
     </script>
 </body>
 </html>
