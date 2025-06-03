@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooper Penniman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-section {
+            margin-bottom: 60px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            margin-bottom: 48px;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .name {
+            font-size: 4rem;
+            font-weight: 200;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .bio {
+            max-width: 520px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #d1d5db;
+            margin-bottom: 48px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            max-width: 600px;
+        }
+
+        .nav-item {
+            padding: 16px 24px;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #9ca3af;
+        }
+
+        .nav-item:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .nav-item.active {
+            background: #ffffff;
+            color: #1a1a1a;
+            border-color: #ffffff;
+        }
+
+        /* Contact Links */
+        .contact-links {
+            display: flex;
+            gap: 32px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .contact-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 12px 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        /* Content Sections */
+        .content {
+            min-height: 80vh;
+            padding: 80px 0 120px;
+        }
+
+        .section {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+            margin-bottom: 120px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .company {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .description {
+            color: #d1d5db;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .project-description {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #d1d5db;
+            transition: all 0.2s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            color: #ffffff;
+        }
+
+        /* Education */
+        .education-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .education-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .school {
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+
+        /* Writing */
+        .writing-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .writing-item {
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .writing-item:hover {
+            padding-left: 16px;
+        }
+
+        .writing-item:last-child {
+            border-bottom: none;
+        }
+
+        .writing-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .writing-date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .writing-excerpt {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* Travel */
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .travel-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .travel-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .travel-flag {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .travel-location {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .travel-date {
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        /* Substack */
+        .substack-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .substack-carousel {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .slide-image {
+            flex: 0 0 300px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .slide-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .slide-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .slide-date {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .slide-excerpt {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .slide-link {
+            display: inline-flex;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .slide-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .indicator.active {
+            background: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .name {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .projects-grid,
+            .travel-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                padding-left: 24px;
+            }
+            
+            .carousel-slide {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .slide-image {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .slide-content {
+                text-align: center;
+            }
+            
+            .substack-carousel {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <img src="assets/images/profile-new.jpg" alt="Profile" class="profile-image">
+                <h1 class="name">Cooper Penniman</h1>
+                <p class="tagline">AI Product Developer & Technical Consultant</p>
+                <div class="bio">
+                    My experience spans AI product development and client-facing implementation, giving me deep insight into user workflows and technical capabilities. This combination allows me to build AI products that truly solve user problems while being technically feasible and scalable.
+                </div>
+                
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/cooper-penniman/" class="contact-link" target="_blank">LinkedIn</a>
+                    <a href="mailto:cooperpenniman@gmail.com" class="contact-link">Email</a>
+                    <a href="https://github.com/cooperpenniman" class="contact-link" target="_blank">GitHub</a>
+                    <a href="https://cooperpenniman.substack.com" class="contact-link" target="_blank">Substack</a>
+                </div>
+            </div>
+            
+            <div class="nav-container">
+                <div class="nav">
+                    <div class="nav-item active" onclick="showSection('experience', this)">Experience</div>
+                    <div class="nav-item" onclick="showSection('projects', this)">Projects</div>
+                    <div class="nav-item" onclick="showSection('skills', this)">Skills</div>
+                    <div class="nav-item" onclick="showSection('education', this)">Education</div>
+                    <div class="nav-item" onclick="showSection('substack', this)">Substack</div>
+                    <div class="nav-item" onclick="showSection('travel', this)">Travel</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section active" id="experience">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-title">DataFeed Specialist - GenAI Product Champion</div>
+                            <div class="company">FactSet Research Systems</div>
+                            <div class="date">November 2022 - Present</div>
+                        </div>
+                        <p class="description">Architected and implemented multi-agent AI system using LangGraph for agent coordination, evolving from basic RAG to complex agentic workflows. Built Model Context Protocol (MCP) proof-of-concept integrating content APIs to enable real-time solution validation for clients. Currently processing 200+ weekly internal queries.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-title">Technical Consultant</div>
+                            <div class="company">Arclight Consulting | Oracle Partner</div>
+                            <div class="date">June 2021 - November 2022</div>
+                        </div>
+                        <p class="description">Wrote custom SQL queries including analytic functions, stored procedures, and unions. Created custom reports using Microsoft BI, XSL, and Oracle's built-in tools. Extracted, transformed, and loaded client data into Oracle's database while conducting regular client calls.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">Multi-Agent Product Discovery Platform</div>
+                        <div class="tech-stack">LangGraph, MCP, RAG, SQL Integration</div>
+                        <p class="project-description">Leading the development of an enterprise agentic chatbot system at FactSet that orchestrates multiple AI agents to retrieve cross-product information, execute SQL queries, and integrate with content APIs. Processing 200+ internal queries weekly.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Model Context Protocol Integration</div>
+                        <div class="tech-stack">MCP, Content APIs, Real-time Validation</div>
+                        <p class="project-description">Built proof-of-concept for MCP integration enabling real-time API calls to help clients validate solution fit. Preparing for client release while reducing traditional support channel volume.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">RAG Application Development</div>
+                        <div class="tech-stack">RAG, Prompt Engineering, Natural Language Processing</div>
+                        <p class="project-description">Managed engineering intern to build Retrieval-Augmented Generation application. Developed optimized prompt engineering strategies for natural language to SQL conversion and documentation chatbots.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skills-grid">
+                        <div class="skill-item">LangGraph</div>
+                        <div class="skill-item">MCP</div>
+                        <div class="skill-item">RAG</div>
+                        <div class="skill-item">Prompt Engineering</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Jira</div>
+                        <div class="skill-item">Microsoft BI</div>
+                        <div class="skill-item">PowerBI</div>
+                        <div class="skill-item">Oracle</div>
+                        <div class="skill-item">XSL</div>
+                        <div class="skill-item">ETL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <div class="degree">B.S. in Mathematics (Statistics Concentration)</div>
+                        <div class="school">University of Massachusetts, Amherst</div>
+                        <div class="date">September 2017 - June 2021</div>
+                        <p class="description">Conducted semester-long research project analyzing the impact of financial transaction tax with Professor Douglass Cliggot.</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">B.A. Economics</div>
+                        <div class="school">University of Massachusetts, Amherst</div>
+                        <div class="date">September 2017 - June 2021</div>
+                        <p class="description">Double major focused on quantitative analysis and economic theory.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="substack">
+                <h2 class="section-title">Substack</h2>
+                <div class="substack-container">
+                    <div class="substack-carousel">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/article1.png" alt="The Capability Overhang Question Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">The Capability Overhang Question</h3>
+                                    <div class="slide-date">Recent</div>
+                                    <p class="slide-excerpt">Understanding the AI Adoption Bottleneck: Model Capabilities vs. Product Gaps. Exploring the disconnect between what AI models can do and what products actually deliver to users.</p>
+                                    <a href="https://substack.com/@cooperpenniman/p-164666088" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/article3.png" alt="RAG's Future Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">RAG's Future</h3>
+                                    <div class="slide-date">May 26</div>
+                                    <p class="slide-excerpt">The arguments for and against RAG. A comprehensive analysis of Retrieval-Augmented Generation technology, its current limitations, and potential future developments in the AI landscape.</p>
+                                    <a href="https://substack.com/@cooperpenniman/p-164526774" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/article3-new.png" alt="Abstracting Away Work Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Abstracting Away Work</h3>
+                                    <div class="slide-date">Apr 27</div>
+                                    <p class="slide-excerpt">How Technology Continues to Change the Way We Work. Exploring the ongoing transformation of work through technological advancement and the implications for the future of employment and productivity.</p>
+                                    <a href="https://substack.com/@cooperpenniman/p-162297037" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/rags-future.png" alt="Contextual Programming Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Contextual Programming</h3>
+                                    <div class="slide-date">May 11</div>
+                                    <p class="slide-excerpt">Exploring the future of software development through context-aware programming paradigms. How AI and machine learning are reshaping the way we write, understand, and maintain code.</p>
+                                    <a href="https://substack.com/@cooperpenniman/p-163019880" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+                            <button class="carousel-btn" id="nextBtn" onclick="changeSlide(1)">›</button>
+                        </div>
+                        
+                        <div class="carousel-indicators">
+                            <div class="indicator active" onclick="goToSlide(0)"></div>
+                            <div class="indicator" onclick="goToSlide(1)"></div>
+                            <div class="indicator" onclick="goToSlide(2)"></div>
+                            <div class="indicator" onclick="goToSlide(3)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="travel">
+                <h2 class="section-title">Travel</h2>
+                <div class="travel-grid">
+                    <div class="travel-item">
+                        <span class="travel-flag">🇭🇹</span>
+                        <div class="travel-location">Haiti</div>
+                        <div class="travel-date">Educational Outreach</div>
+                    </div>
+                    
+                    <div class="travel-item">
+                        <span class="travel-flag">🌍</span>
+                        <div class="travel-location">Global</div>
+                        <div class="travel-date">World Computer Exchange</div>
+                    </div>
+                    
+                    <div class="travel-item">
+                        <span class="travel-flag">🇺🇸</span>
+                        <div class="travel-location">Boston, MA</div>
+                        <div class="travel-date">Microsoft TEALS</div>
+                    </div>
+                    
+                    <div class="travel-item">
+                        <span class="travel-flag">🇺🇸</span>
+                        <div class="travel-location">New York, NY</div>
+                        <div class="travel-date">Current Base</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionName, clickedElement) {
+            // Remove active class from nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to clicked nav item
+            if (clickedElement) {
+                clickedElement.classList.add('active');
+            }
+            
+            // Scroll to the target section
+            const targetSection = document.getElementById(sectionName);
+            if (targetSection) {
+                targetSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 4;
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Move the carousel track
+            const translateX = -currentSlide * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set first nav item as active
+            const firstNavItem = document.querySelector('.nav-item');
+            if (firstNavItem) {
+                firstNavItem.classList.add('active');
+            }
+            
+            // Initialize carousel
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
