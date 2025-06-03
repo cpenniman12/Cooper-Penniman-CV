@@ -287,6 +287,28 @@
             line-height: 1.6;
         }
 
+        .project-description + .project-how {
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .project-how {
+            color: #b3b3b3;
+            font-size: 0.98rem;
+            margin-bottom: 0;
+        }
+
+        .project-icon-link.website {
+            color: #4fd1c5;
+            font-weight: 500;
+            margin-left: 4px;
+        }
+
+        .project-icon-link.website:hover {
+            color: #38b2ac;
+        }
+
         /* Skills */
         .skills-container {
             max-width: 600px;
@@ -624,15 +646,18 @@
             max-width: 800px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
         }
 
         .life-image-container {
             position: relative;
-            max-width: 600px;
+            max-width: 240px;
             width: 100%;
-            margin-bottom: 40px;
+            margin-bottom: 0;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -675,6 +700,50 @@
             font-weight: 500;
             line-height: 1.4;
         }
+
+        @media (max-width: 768px) {
+            .life-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+            .life-image-container {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        .teals-image {
+            max-width: 320px;
+        }
+        @media (max-width: 768px) {
+            .teals-image {
+                max-width: 100%;
+            }
+        }
+
+        .project-icons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        .project-icon-link {
+            display: inline-flex;
+            align-items: center;
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.2rem;
+        }
+        .project-icon-link:hover {
+            color: #fff;
+        }
+        .project-icon-link svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -687,7 +756,7 @@
                 <h1 class="name">Cooper Penniman</h1>
                 <p class="tagline">AI Product Developer & Technical Consultant</p>
                 <div class="bio">
-                    My experience spans AI product development and client-facing implementation, giving me deep insight into user workflows and technical capabilities. This combination allows me to build AI products that truly solve user problems while being technically feasible and scalable.
+                    I want to leverage AI to solve real problems. UMass Amherst alum living in NYC. Outside of work passionate about promoting AI in education, watching the Celtics, and traveling.
                 </div>
                 
                 <div class="contact-links">
@@ -701,7 +770,7 @@
             <div class="nav-container">
                 <div class="nav">
                     <div class="nav-item active" onclick="showSection('experience', this)">Experience</div>
-                    <div class="nav-item" onclick="showSection('projects', this)">Projects</div>
+                    <div class="nav-item" onclick="showSection('projects', this)">Weekend Projects</div>
                     <div class="nav-item" onclick="showSection('skills', this)">Skills</div>
                     <div class="nav-item" onclick="showSection('education', this)">Education</div>
                     <div class="nav-item" onclick="showSection('podcasts', this)">Podcasts</div>
@@ -721,7 +790,7 @@
                             <div class="company">FactSet Research Systems</div>
                             <div class="date">November 2022 - Present</div>
                         </div>
-                        <p class="description">Architected and implemented multi-agent AI system using LangGraph for agent coordination, evolving from basic RAG to complex agentic workflows. Built Model Context Protocol (MCP) proof-of-concept integrating content APIs to enable real-time solution validation for clients. Currently processing 200+ weekly internal queries.</p>
+                        <p class="description">Leading the development of an enterprise agentic chatbot system that orchestrates multiple AI agents using LangGraph to retrieve cross-product information and execute SQL queries. I architected the system's evolution from basic RAG to complex agentic workflows, integrating content APIs through Model Context Protocol (MCP) to enable real-time solution validation for clients. The platform currently processes 200+ weekly internal queries while reducing traditional support channel volume. Beyond the technical build, I manage client trial implementations and conduct daily training sessions, translating complex technical concepts into actionable workflows that directly inform our product roadmap. I also mentored an engineering intern who built a RAG application and regularly advise product teams by leveraging my deep understanding of client pain points and usage patterns.</p>
                     </div>
                     
                     <div class="timeline-item">
@@ -736,24 +805,62 @@
             </div>
 
             <div class="section" id="projects">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Weekend Projects</h2>
                 <div class="projects-grid">
+                    <!-- Custom Podcast Generator -->
                     <div class="project-card">
-                        <div class="project-title">Multi-Agent Product Discovery Platform</div>
-                        <div class="tech-stack">LangGraph, MCP, RAG, SQL Integration</div>
-                        <p class="project-description">Leading the development of an enterprise agentic chatbot system at FactSet that orchestrates multiple AI agents to retrieve cross-product information, execute SQL queries, and integrate with content APIs. Processing 200+ internal queries weekly.</p>
+                        <div class="project-icons">
+                            <a class="project-icon-link" href="https://github.com/cpenniman12/ai-news-podcast" target="_blank" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                            </a>
+                            <a class="project-icon-link website" href="https://ai-news-podcast-pqct.onrender.com" target="_blank" title="Visit Website">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59L10 12.59 11.41 14 19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+                                <span style="margin-left:6px; font-size:0.98rem;">Website</span>
+                            </a>
+                        </div>
+                        <div class="project-title">Custom Podcast Generator</div>
+                        <div class="tech-stack">Next.js, OpenAI, Brave Search, Perplexity, TTS</div>
+                        <p class="project-description">Built an AI-powered web app to retrieve the latest AI news after my favorite daily news podcast was discontinued.</p>
+                        <div class="project-how"><strong>How it works:</strong> A web scraping API feeds news headlines into GPT, which curates them based on my criteria. Users select the most interesting headlines. GPT then creates 2-3 minute summaries for each, which are converted to audio using OpenAI TTS for a personalized podcast episode.</div>
                     </div>
-                    
+                    <!-- Habits -->
                     <div class="project-card">
-                        <div class="project-title">Model Context Protocol Integration</div>
-                        <div class="tech-stack">MCP, Content APIs, Real-time Validation</div>
-                        <p class="project-description">Built proof-of-concept for MCP integration enabling real-time API calls to help clients validate solution fit. Preparing for client release while reducing traditional support channel volume.</p>
+                        <div class="project-icons">
+                            <a class="project-icon-link" href="https://github.com/cpenniman12/habits" target="_blank" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                            </a>
+                            <a class="project-icon-link website" href="https://habits-y979.onrender.com" target="_blank" title="Visit Website">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59L10 12.59 11.41 14 19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+                                <span style="margin-left:6px; font-size:0.98rem;">Website</span>
+                            </a>
+                        </div>
+                        <div class="project-title">Habits</div>
+                        <div class="tech-stack">Node.js, EJS, Email, Habit Tracking</div>
+                        <p class="project-description">A fun way to challenge friends to healthy habits.</p>
+                        <div class="project-how"><strong>How it works:</strong> Add your email and a friend's, plus your habit. If your friend accepts the challenge via email, you both get daily check-ins for 18 days to track your progress. See each other's progress and stay motivated!</div>
                     </div>
-                    
+                    <!-- Flight Data Chatbot -->
                     <div class="project-card">
-                        <div class="project-title">RAG Application Development</div>
-                        <div class="tech-stack">RAG, Prompt Engineering, Natural Language Processing</div>
-                        <p class="project-description">Managed engineering intern to build Retrieval-Augmented Generation application. Developed optimized prompt engineering strategies for natural language to SQL conversion and documentation chatbots.</p>
+                        <div class="project-icons">
+                            <a class="project-icon-link" href="https://github.com/cpenniman12/flight-data-chatbot" target="_blank" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                            </a>
+                            <a class="project-icon-link website" href="#" title="Visit Website">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59L10 12.59 11.41 14 19 6.41V10h2V3z"/><path d="M5 5v14h14v-7h-2v5H7V7h5V5z"/></svg>
+                                <span style="margin-left:6px; font-size:0.98rem;">Website</span>
+                            </a>
+                        </div>
+                        <div class="project-title">Flight Data Chatbot</div>
+                        <div class="tech-stack">Postgres, SQL, Data Viz, NLP</div>
+                        <p class="project-description">Query and visualize public NYC flight data using natural language.</p>
+                        <div class="project-how"><strong>How it works:</strong> Public NYC flight data is loaded into Postgres. The app translates natural language requests into SQL, executes them, and generates visualizations when applicable.</div>
+                    </div>
+                    <!-- +more card -->
+                    <div class="project-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; font-size: 1.5rem; font-weight: 600; color: #9ca3af; cursor: pointer;">
+                        <a href="https://github.com/cpenniman12" target="_blank" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+                            <span style="font-size: 2.2rem; margin-bottom: 8px;">+more</span>
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 32px; height: 32px;"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -872,6 +979,13 @@
                         <img src="assets/images/life-shanghai.png" alt="Shanghai Skyline" class="life-image">
                         <div class="life-image-overlay">
                             <div class="overlay-text">View of the Shanghai Skyline from my trip in china in december 2024</div>
+                        </div>
+                    </div>
+
+                    <div class="life-image-container teals-image">
+                        <img src="assets/images/IMG_1902.jpg" alt="Certificates of appreciation from Microsoft Teals" class="life-image">
+                        <div class="life-image-overlay">
+                            <div class="overlay-text">Certificates of appreciation from Microsoft Teals - A volunteer organization connecting technology professionals and computer science students</div>
                         </div>
                     </div>
                 </div>
