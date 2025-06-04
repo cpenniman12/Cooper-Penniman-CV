@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cooper Penniman</title>
-    <link rel="icon" type="image/jpeg" href="assets/images/profile-new.jpg">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
+    <link rel="apple-touch-icon-precomposed" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
+    <meta name="msapplication-TileImage" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
     <style>
         * {
             margin: 0;
@@ -62,6 +66,7 @@
             object-fit: cover;
             border: 3px solid rgba(255,255,255,0.1);
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-top: 32px;
         }
 
         .name {
@@ -130,23 +135,41 @@
         /* Contact Links */
         .contact-links {
             display: flex;
-            gap: 32px;
+            flex-direction: column;
+            align-items: center;
             margin-top: 40px;
             justify-content: center;
+            padding-bottom: 80px;
         }
-
-        .contact-link {
-            color: #9ca3af;
+        .contact-icons {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-link, .contact-link:visited, .contact-link:active {
+            color: #fff !important;
             text-decoration: none;
-            font-size: 0.95rem;
-            padding: 12px 0;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            padding: 0;
+            border-bottom: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-
         .contact-link:hover {
-            color: #ffffff;
-            border-bottom-color: #ffffff;
+            color: #4fd1c5 !important;
+        }
+        .contact-icons svg {
+            color: #fff;
+        }
+        .bio {
+            margin: 24px 0 0 0 !important;
+            color: #b3b3b3;
+            font-size: 1.08rem;
+            text-align: center;
+            width: 100%;
         }
 
         /* Content Sections */
@@ -261,6 +284,7 @@
             padding: 32px;
             transition: all 0.2s ease;
             text-align: left;
+            position: relative;
         }
 
         .project-card:hover {
@@ -749,6 +773,34 @@
             height: 22px;
             display: block;
         }
+
+        .project-banner {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #22c55e;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(34,197,94,0.15);
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+
+        .life-image-container.haiti-image {
+            max-width: 360px;
+        }
+        @media (max-width: 768px) {
+            .life-image-container.haiti-image {
+                max-width: 100%;
+            }
+        }
+
+        .project-card .project-banner + .project-icons {
+            margin-top: 32px;
+        }
     </style>
 </head>
 <body>
@@ -762,16 +814,15 @@
                 <div class="typewriter-container">
                     <span id="typewriter-text" style="font-size:1.25rem; color:#9ca3af; font-weight:400;"></span>
                 </div>
-                <div class="bio">
-                    Leveraging AI to solve real problems. Also passionate about Celtics Basketball, AI in education, and mentorship.
-                </div>
-                
-                <div class="contact-links">
+            </div>
+
+            <div class="contact-links">
+                <div class="contact-icons">
                     <a class="contact-link" href="mailto:cooperpenniman@gmail.com" title="Email">
                         <svg style="vertical-align:middle; margin-right:6px;" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>
                         cooperpenniman@gmail.com
                     </a>
-                    <span class="contact-link" title="Location">
+                    <span class="contact-link" title="Location" style="cursor:default;">
                         <svg style="vertical-align:middle; margin-right:6px;" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         New York
                     </span>
@@ -780,15 +831,18 @@
                         LinkedIn
                     </a>
                 </div>
+                <div class="bio" style="margin: 24px 0 0 0; color: #b3b3b3; font-size: 1.08rem; text-align: center; width: 100%;">
+                    Leveraging AI to solve real problems. Also passionate about Celtics Basketball, AI in education, and mentorship.
+                </div>
             </div>
-            
+
             <div class="nav-container">
                 <div class="nav">
                     <div class="nav-item active" onclick="showSection('experience', this)">Experience</div>
                     <div class="nav-item" onclick="showSection('projects', this)">Weekend Projects</div>
-                    <div class="nav-item" onclick="showSection('skills', this)">Skills</div>
                     <div class="nav-item" onclick="showSection('education', this)">Education</div>
-                    <div class="nav-item" onclick="showSection('substack', this)">Substack</div>
+                    <div class="nav-item" onclick="showSection('writings', this)">Writings</div>
+                    <div class="nav-item" onclick="showSection('skills', this)">Skills</div>
                     <div class="nav-item" onclick="showSection('life', this)">Life</div>
                 </div>
             </div>
@@ -823,6 +877,7 @@
                 <div class="projects-grid">
                     <!-- Custom Podcast Generator -->
                     <div class="project-card">
+                        <div class="project-banner">Active</div>
                         <div class="project-icons">
                             <a class="project-icon-link" href="https://github.com/cpenniman12/ai-news-podcast" target="_blank" title="GitHub">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
@@ -879,26 +934,6 @@
                 </div>
             </div>
 
-            <div class="section" id="skills">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-container">
-                    <div class="skills-grid">
-                        <div class="skill-item">LangGraph</div>
-                        <div class="skill-item">MCP</div>
-                        <div class="skill-item">Prompt Engineering</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">Jira</div>
-                        <div class="skill-item">ETL</div>
-                        <div class="skill-item">Client Training</div>
-                        <div class="skill-item">Vector Databases</div>
-                        <div class="skill-item">Usage Tracking</div>
-                        <div class="skill-item">Requirements Gathering</div>
-                        <div class="skill-item">Cursor</div>
-                    </div>
-                </div>
-            </div>
-
             <div class="section" id="education">
                 <h2 class="section-title">Education</h2>
                 <div class="education-list">
@@ -911,8 +946,8 @@
                 </div>
             </div>
 
-            <div class="section" id="substack">
-                <h2 class="section-title">Substack</h2>
+            <div class="section" id="writings">
+                <h2 class="section-title">Writings</h2>
                 <div class="substack-container">
                     <div class="substack-carousel">
                         <div class="carousel-track" id="carouselTrack">
@@ -972,6 +1007,30 @@
                 </div>
             </div>
 
+            <div class="section" id="skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-container">
+                    <div class="skills-grid">
+                        <div class="skill-item">LangGraph</div>
+                        <div class="skill-item">MCP</div>
+                        <div class="skill-item">Prompt Engineering</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">ETL</div>
+                        <div class="skill-item">Client Training</div>
+                        <div class="skill-item">Vector Databases</div>
+                        <div class="skill-item">Usage Tracking</div>
+                        <div class="skill-item">Requirements Gathering</div>
+                        <div class="skill-item">Cursor</div>
+                        <div class="skill-item">Model Evaluation</div>
+                        <div class="skill-item">Snowflake</div>
+                        <div class="skill-item">Databricks</div>
+                        <div class="skill-item">Solution Design</div>
+                        <div class="skill-item">Market Data</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="section" id="life">
                 <h2 class="section-title">Life</h2>
                 <div class="life-container">
@@ -993,6 +1052,13 @@
                         <img src="assets/images/IMG_1902.jpg" alt="Certificates of appreciation from Microsoft Teals" class="life-image">
                         <div class="life-image-overlay">
                             <div class="overlay-text">Certificates of appreciation from Microsoft Teals - A volunteer organization connecting technology professionals and computer science students.</div>
+                        </div>
+                    </div>
+
+                    <div class="life-image-container haiti-image">
+                        <img src="assets/images/IMG_2907.jpg" alt="Teaching in Haiti" class="life-image">
+                        <div class="life-image-overlay">
+                            <div class="overlay-text">The week after college graduation I took a solo trip to Haiti to teach computer fundamentals to students</div>
                         </div>
                     </div>
                 </div>
@@ -1072,26 +1138,36 @@
             updateCarousel();
         });
 
-        // Typewriter effect
-        const testText = "This is a test typing animation.";
-        const typewriter = document.getElementById('typewriter-text');
-        let i = 0;
+        // Typewriter effect for multiple words
+        const words = [
+            "Solution Designer",
+            "Disruptor",
+            "Technologist",
+            "Developer",
+            "Strategist",
+            "Collaborator"
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
         let isDeleting = false;
         let speed = 80;
+        const typewriter = document.getElementById('typewriter-text');
 
         function typeLoop() {
-            if (!isDeleting && i <= testText.length) {
-                typewriter.textContent = testText.substring(0, i);
-                i++;
-                if (i > testText.length) {
+            const currentWord = words[wordIndex];
+            if (!isDeleting && charIndex <= currentWord.length) {
+                typewriter.textContent = currentWord.substring(0, charIndex);
+                charIndex++;
+                if (charIndex > currentWord.length) {
                     setTimeout(() => { isDeleting = true; typeLoop(); }, 1000);
                     return;
                 }
-            } else if (isDeleting && i >= 0) {
-                typewriter.textContent = testText.substring(0, i);
-                i--;
-                if (i < 0) {
+            } else if (isDeleting && charIndex >= 0) {
+                typewriter.textContent = currentWord.substring(0, charIndex);
+                charIndex--;
+                if (charIndex < 0) {
                     isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
                     setTimeout(typeLoop, 500);
                     return;
                 }
