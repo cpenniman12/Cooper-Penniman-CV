@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cooper Penniman</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
-    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A">
     <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
     <link rel="apple-touch-icon-precomposed" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
     <meta name="msapplication-TileImage" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
@@ -499,6 +499,7 @@
         .carousel-track {
             display: flex;
             transition: transform 0.4s ease;
+            width: calc(100% * 5); /* 5 slides, update if number changes */
         }
 
         .carousel-slide {
@@ -964,7 +965,15 @@
                                     <a href="https://substack.com/@cooperpenniman/p-164666088" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
-                            
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/build-what-you-want.png" alt="Build What You Want Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Build What You Want</h3>
+                                    <div class="slide-date">Jun 06, 2025</div>
+                                    <p class="slide-excerpt">Niche Software - Building for an Audience of One.</p>
+                                    <a href="https://cooperpenniman.substack.com/p/build-what-you-want" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
                             <div class="carousel-slide">
                                 <img src="assets/images/substack/article3.png" alt="RAG's Future Cover" class="slide-image">
                                 <div class="slide-content">
@@ -974,17 +983,6 @@
                                     <a href="https://substack.com/@cooperpenniman/p-164526774" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
-                            
-                            <div class="carousel-slide">
-                                <img src="assets/images/substack/article2.png" alt="Abstracting Away Work Cover" class="slide-image">
-                                <div class="slide-content">
-                                    <h3 class="slide-title">Abstracting Away Work</h3>
-                                    <div class="slide-date">Apr 27</div>
-                                    <p class="slide-excerpt">How Technology Continues to Change the Way We Work. Exploring the ongoing transformation of work through technological advancement and the implications for the future of employment and productivity.</p>
-                                    <a href="https://substack.com/@cooperpenniman/p-162297037" target="_blank" class="slide-link">Read on Substack →</a>
-                                </div>
-                            </div>
-                            
                             <div class="carousel-slide">
                                 <img src="assets/images/substack/contextual-programming.png" alt="Contextual Programming Cover" class="slide-image">
                                 <div class="slide-content">
@@ -992,6 +990,15 @@
                                     <div class="slide-date">May 11</div>
                                     <p class="slide-excerpt">Exploring the future of software development through context-aware programming paradigms. How AI and machine learning are reshaping the way we write, understand, and maintain code.</p>
                                     <a href="https://substack.com/@cooperpenniman/p-163019880" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/substack/article2.png" alt="Abstracting Away Work Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Abstracting Away Work</h3>
+                                    <div class="slide-date">Apr 27</div>
+                                    <p class="slide-excerpt">How Technology Continues to Change the Way We Work. Exploring the ongoing transformation of work through technological advancement and the implications for the future of employment and productivity.</p>
+                                    <a href="https://substack.com/@cooperpenniman/p-162297037" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                         </div>
@@ -1006,6 +1013,7 @@
                             <div class="indicator" onclick="goToSlide(1)"></div>
                             <div class="indicator" onclick="goToSlide(2)"></div>
                             <div class="indicator" onclick="goToSlide(3)"></div>
+                            <div class="indicator" onclick="goToSlide(4)"></div>
                         </div>
                     </div>
                 </div>
@@ -1093,7 +1101,7 @@
 
         // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 4;
+        const totalSlides = 5;
 
         function changeSlide(direction) {
             currentSlide += direction;
