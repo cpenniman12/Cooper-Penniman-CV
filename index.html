@@ -903,8 +903,20 @@
                         </div>
                         <div class="project-title">Custom Podcast Generator</div>
                         <div class="tech-stack">TypeScript, OpenAI, TTS, Brave Search, Supabase DB</div>
-                        <p class="project-description">Built an AI-powered web app to retrieve the latest AI news after my favorite daily news podcast was discontinued.</p>
+                        <p class="project-description">AI-powered web app to retrieve the latest AI news after my favorite daily news podcast was discontinued.</p>
                         <div class="project-how"><strong>How it works:</strong> A web scraping API feeds news headlines into GPT, which curates them based on my criteria. Users select the most interesting headlines. GPT then creates 2-3 minute summaries for each, which are converted to audio using OpenAI TTS for a personalized podcast episode.</div>
+                    </div>
+                    <!-- NL2SQL MCP Server -->
+                    <div class="project-card">
+                        <div class="project-icons">
+                            <a class="project-icon-link" href="https://github.com/cpenniman12/postgres" target="_blank" title="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+                            </a>
+                        </div>
+                        <div class="project-title">NL2SQL MCP Server</div>
+                        <div class="tech-stack">JavaScript, Postgres, Anthropic, Pgvector</div>
+                        <p class="project-description">Enable LLMs to query Postgres databases using natural language.</p>
+                        <div class="project-how"><strong>How it works:</strong> The MCP server includes schema information in its tool descriptions. When an LLM needs database information, it sends a natural language request which gets vectorized using pgvector and matched against pre-vectorized schema tables. The top 10 semantically similar tables are sent to Claude to generate SQL from the original request, which is then executed and returned to the LLM.</div>
                     </div>
                     <!-- Habits -->
                     <div class="project-card">
@@ -937,18 +949,6 @@
                         <div class="tech-stack">Python, JS, HTML, Anthropic, Postgres</div>
                         <p class="project-description">Query and visualize public NYC flight data using natural language.</p>
                         <div class="project-how"><strong>How it works:</strong> Public NYC flight data is loaded into Postgres. The app translates natural language requests into SQL, executes them, and generates visualizations when applicable.</div>
-                    </div>
-                    <!-- NL2SQL MCP Server -->
-                    <div class="project-card">
-                        <div class="project-icons">
-                            <a class="project-icon-link" href="https://github.com/cpenniman12/postgres" target="_blank" title="GitHub">
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
-                            </a>
-                        </div>
-                        <div class="project-title">NL2SQL MCP Server</div>
-                        <div class="tech-stack">JavaScript, Postgres, Anthropic, Pgvector</div>
-                        <p class="project-description">Enable LLMs to query Postgres databases using natural language.</p>
-                        <div class="project-how"><strong>How it works:</strong> The MCP server includes schema information in its tool descriptions. When an LLM needs database information, it sends a natural language request which gets vectorized using pgvector and matched against pre-vectorized schema tables. The top 10 semantically similar tables are sent to Claude to generate SQL from the original request, which is then executed and returned to the LLM.</div>
                     </div>
                     <!-- +more card -->
                     <div class="project-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; font-size: 1.5rem; font-weight: 600; color: #9ca3af; cursor: pointer;">
