@@ -499,7 +499,7 @@
         .carousel-track {
             display: flex;
             transition: transform 0.4s ease;
-            width: calc(100% * 5); /* 5 slides, update if number changes */
+            width: calc(100% * 6); /* 6 slides, update if number changes */
         }
 
         .carousel-slide {
@@ -868,11 +868,20 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="job-header">
-                            <div class="job-title">DataFeed Specialist - GenAI Product Champion</div>
+                            <div class="job-title">Product Manager</div>
                             <div class="company">FactSet Research Systems</div>
-                            <div class="date">November 2022 - Present</div>
+                            <div class="date">July 2025 - Present</div>
                         </div>
-                        <p class="description">Leading the development of an enterprise agentic chatbot system that orchestrates multiple AI agents using LangGraph to retrieve cross-product information and execute SQL queries. I architected the system's evolution from basic RAG to complex agentic workflows, integrating content APIs through Model Context Protocol (MCP) to enable real-time solution validation for clients. The platform currently processes 200+ weekly internal queries while reducing traditional support channel volume. Beyond the technical build, I manage client trial implementations and conduct daily training sessions, translating complex technical concepts into actionable workflows that directly inform our product roadmap. I also mentored an engineering intern who built a RAG application and regularly advise product teams by leveraging my deep understanding of client pain points and usage patterns.</p>
+                        <p class="description">Leading development of an enterprise agentic chat system that accelerates product discovery and implementation. Leveraging deep expertise in FactSet database architecture to design a tool-call framework that maximizes contextual information delivery to language models while optimizing for cost efficiency and response speed. Key contributions include:<br><br>Streaming NL2SQL Architecture: Designed and implemented an asynchronous natural language-to-SQL pipeline that handles long-running queries while providing real-time progress updates, maintaining user engagement throughout complex data operations<br><br>Context-Optimized Tool Framework: Architected tool-call infrastructure that strategically balances comprehensive context delivery with performance constraints, ensuring rich model responses without latency or cost penalties</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="job-header">
+                            <div class="job-title">Implementation Specialist</div>
+                            <div class="company">FactSet Research Systems</div>
+                            <div class="date">November 2022 - July 2025</div>
+                        </div>
+                        <p class="description">Served as primary technical contact for enterprise clients implementing FactSet's Datafeeds and APIs. Delivered technical training sessions, partnered with sales teams to align client subscriptions with business requirements, and guided clients through integration workflows. Identified automation opportunities from frontline client interactions and championed development of an agentic system to streamline repetitive implementation tasks, bridging hands-on client experience with AI-driven efficiency improvements.</p>
                     </div>
                     
                     <div class="timeline-item">
@@ -978,6 +987,14 @@
                     <div class="substack-carousel">
                         <div class="carousel-track" id="carouselTrack">
                             <div class="carousel-slide">
+                                <img src="assets/images/substack/tool-calling-verification.jpg" alt="Tool Calling and the Power of Verification Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Tool Calling and the Power of Verification</h3>
+                                    <div class="slide-date">December 14, 2025</div>
+                                    <a href="https://substack.com/home/post/p-181557853" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
                                 <img src="assets/images/substack/article1.png" alt="AI Capability Overhang Cover" class="slide-image">
                                 <div class="slide-content">
                                     <h3 class="slide-title">AI Capability Overhang</h3>
@@ -1030,6 +1047,7 @@
                             <div class="indicator" onclick="goToSlide(2)"></div>
                             <div class="indicator" onclick="goToSlide(3)"></div>
                             <div class="indicator" onclick="goToSlide(4)"></div>
+                            <div class="indicator" onclick="goToSlide(5)"></div>
                         </div>
                     </div>
                 </div>
@@ -1055,6 +1073,8 @@
                         <div class="skill-item">Databricks</div>
                         <div class="skill-item">Solution Design</div>
                         <div class="skill-item">Market Data</div>
+                        <div class="skill-item">Context Engineering</div>
+                        <div class="skill-item">Database Design</div>
                     </div>
                 </div>
             </div>
@@ -1117,7 +1137,7 @@
 
         // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 6;
 
         function changeSlide(direction) {
             currentSlide += direction;
