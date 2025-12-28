@@ -499,7 +499,7 @@
         .carousel-track {
             display: flex;
             transition: transform 0.4s ease;
-            width: calc(100% * 6); /* 6 slides, update if number changes */
+            width: calc(100% * 8); /* 8 slides, update if number changes */
         }
 
         .carousel-slide {
@@ -998,6 +998,14 @@
                     <div class="substack-carousel">
                         <div class="carousel-track" id="carouselTrack">
                             <div class="carousel-slide">
+                                <img src="assets/images/substack/ai-employee.png" alt="What I've Learned Managing an AI Employee Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">What I've Learned Managing an AI Employee</h3>
+                                    <div class="slide-date">December 28, 2025</div>
+                                    <a href="https://cooper1122.substack.com/p/what-ive-learned-managing-an-ai-employee" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
                                 <img src="assets/images/substack/tool-calling-verification.jpg" alt="Tool Calling and the Power of Verification Cover" class="slide-image">
                                 <div class="slide-content">
                                     <h3 class="slide-title">Tool Calling and the Power of Verification</h3>
@@ -1006,11 +1014,19 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
+                                <img src="assets/images/substack/developers-agentic-ai.png" alt="Developers Are Leading the Way With Agentic AI Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Developers Are Leading the Way With Agentic AI</h3>
+                                    <div class="slide-date">September 2025</div>
+                                    <a href="https://substack.com/home/post/p-173583941" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
                                 <img src="assets/images/substack/article1.png" alt="AI Capability Overhang Cover" class="slide-image">
                                 <div class="slide-content">
                                     <h3 class="slide-title">AI Capability Overhang</h3>
                                     <div class="slide-date">May 28, 2025</div>
-                                    <a href="https://substack.com/@cooperpenniman/p-164666088" target="_blank" class="slide-link">Read on Substack →</a>
+                                    <a href="https://substack.com/home/post/p-164666088" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                             <div class="carousel-slide">
@@ -1018,7 +1034,7 @@
                                 <div class="slide-content">
                                     <h3 class="slide-title">Build What You Want</h3>
                                     <div class="slide-date">Jun 06, 2025</div>
-                                    <a href="https://cooperpenniman.substack.com/p/build-what-you-want" target="_blank" class="slide-link">Read on Substack →</a>
+                                    <a href="https://substack.com/@cooper1122/p-165374042" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                             <div class="carousel-slide">
@@ -1026,7 +1042,7 @@
                                 <div class="slide-content">
                                     <h3 class="slide-title">RAG's Future</h3>
                                     <div class="slide-date">May 26</div>
-                                    <a href="https://substack.com/@cooperpenniman/p-164526774" target="_blank" class="slide-link">Read on Substack →</a>
+                                    <a href="https://substack.com/home/post/p-164526774" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                             <div class="carousel-slide">
@@ -1034,7 +1050,7 @@
                                 <div class="slide-content">
                                     <h3 class="slide-title">Contextual Programming</h3>
                                     <div class="slide-date">May 11</div>
-                                    <a href="https://substack.com/@cooperpenniman/p-163019880" target="_blank" class="slide-link">Read on Substack →</a>
+                                    <a href="https://substack.com/@cooper1122/p-163019880" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                             <div class="carousel-slide">
@@ -1042,7 +1058,7 @@
                                 <div class="slide-content">
                                     <h3 class="slide-title">Abstracting Away Work</h3>
                                     <div class="slide-date">Apr 27</div>
-                                    <a href="https://substack.com/@cooperpenniman/p-162297037" target="_blank" class="slide-link">Read on Substack →</a>
+                                    <a href="https://substack.com/home/post/p-162297037" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                         </div>
@@ -1059,6 +1075,8 @@
                             <div class="indicator" onclick="goToSlide(3)"></div>
                             <div class="indicator" onclick="goToSlide(4)"></div>
                             <div class="indicator" onclick="goToSlide(5)"></div>
+                            <div class="indicator" onclick="goToSlide(6)"></div>
+                            <div class="indicator" onclick="goToSlide(7)"></div>
                         </div>
                     </div>
                 </div>
@@ -1148,7 +1166,7 @@
 
         // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 6;
+        const totalSlides = 8;
 
         function changeSlide(direction) {
             currentSlide += direction;
