@@ -923,8 +923,8 @@
                         </div>
                         <div class="project-title">Custom Podcast Generator</div>
                         <div class="tech-stack">TypeScript, OpenAI, TTS, Brave Search, Supabase DB</div>
-                        <p class="project-description">AI-powered web app to retrieve the latest AI news after my favorite daily news podcast was discontinued.</p>
-                        <div class="project-how"><strong>How it works:</strong> A web scraping API feeds news headlines into GPT, which curates them based on my criteria. Users select the most interesting headlines. GPT then creates 2-3 minute summaries for each, which are converted to audio using OpenAI TTS for a personalized podcast episode.</div>
+                        <p class="project-description">AI-powered web app to retrieve the latest AI news after my favorite daily news podcast was discontinued. Recently refactored to use the Claude Agents SDK</p>
+                        <div class="project-how"><strong>How it works:</strong> Claude agent with web search has instructions on how to curate headlines. The Agent will run web searches until it feels as if it has a strong list of headlines fitting the criteria. The user then selects the most interesting headlines. This list is passed to another agent who also uses web search to do deeper research on the headlines as well as writes a script for the podcast. It then passes this script to the OpenAI TTS model to generate the audio file.</div>
                     </div>
                     <!-- NL2SQL MCP Server -->
                     <div class="project-card">
@@ -998,6 +998,14 @@
                     <div class="substack-carousel">
                         <div class="carousel-track" id="carouselTrack">
                             <div class="carousel-slide">
+                                <img src="assets/images/substack/build-what-you-want.png" alt="Build What You Want Cover" class="slide-image">
+                                <div class="slide-content">
+                                    <h3 class="slide-title">Build What You Want</h3>
+                                    <div class="slide-date">Jun 06, 2025</div>
+                                    <a href="https://substack.com/@cooper1122/p-165374042" target="_blank" class="slide-link">Read on Substack →</a>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
                                 <img src="assets/images/substack/ai-employee.png" alt="What I've Learned Managing an AI Employee Cover" class="slide-image">
                                 <div class="slide-content">
                                     <h3 class="slide-title">What I've Learned Managing an AI Employee</h3>
@@ -1027,14 +1035,6 @@
                                     <h3 class="slide-title">AI Capability Overhang</h3>
                                     <div class="slide-date">May 28, 2025</div>
                                     <a href="https://substack.com/home/post/p-164666088" target="_blank" class="slide-link">Read on Substack →</a>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/substack/build-what-you-want.png" alt="Build What You Want Cover" class="slide-image">
-                                <div class="slide-content">
-                                    <h3 class="slide-title">Build What You Want</h3>
-                                    <div class="slide-date">Jun 06, 2025</div>
-                                    <a href="https://substack.com/@cooper1122/p-165374042" target="_blank" class="slide-link">Read on Substack →</a>
                                 </div>
                             </div>
                             <div class="carousel-slide">
