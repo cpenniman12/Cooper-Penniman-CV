@@ -370,6 +370,84 @@
             line-height: 1.65;
         }
 
+        .project-card-facts {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--rule-light);
+            list-style: none;
+            font-size: 0.92rem;
+            color: var(--ink-light);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .project-card-facts li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-card-facts li:last-child { margin-bottom: 0; }
+
+        .project-card-facts li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 8px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .project-card-facts a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule-light);
+        }
+
+        .project-card-facts a:hover { border-bottom-color: var(--accent); }
+
+        /* Featured / main active project */
+        .project-card.featured {
+            grid-column: 1 / -1;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent), 12px 12px 0 var(--rule-light);
+            background: linear-gradient(180deg, rgba(45,43,133,0.03), var(--paper));
+        }
+
+        .project-card.featured .project-card-desc { font-size: 0.98rem; }
+
+        .featured-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: rgba(45,43,133,0.08);
+            border-radius: 999px;
+            padding: 5px 12px;
+            margin-bottom: 14px;
+        }
+
+        .featured-tag .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #1F9D55;
+            box-shadow: 0 0 0 0 rgba(31,157,85,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(31,157,85,0.5); }
+            70%  { box-shadow: 0 0 0 7px rgba(31,157,85,0); }
+            100% { box-shadow: 0 0 0 0 rgba(31,157,85,0); }
+        }
+
         .project-card.more-card {
             display: flex;
             align-items: center;
@@ -676,6 +754,7 @@
             .pull-quote { font-size: 1.4rem; }
 
             .project-card { width: 300px; }
+            .project-card.featured { width: auto; }
 
             .skills-columns { grid-template-columns: 1fr; }
 
@@ -784,16 +863,20 @@
         </div>
         <div class="projects-strip fade-up">
                 <!-- text2sql -->
-                <div class="project-card">
+                <div class="project-card featured">
                     <div class="project-card-top">
-                        <div class="project-card-tech">Python · LangGraph · MCP · SQL · Agent Observability</div>
+                        <div class="project-card-tech">Python · Deep Agents SDK · MCP · SQL · Agent Observability</div>
                         <div class="project-card-links">
                             <a href="https://github.com/Text2SqlAgent/text2sql-framework" target="_blank" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0112 6.84c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0022 12.26C22 6.58 17.52 2 12 2z"/></svg></a>
                         </div>
                     </div>
                     <h3 class="project-card-title">Text-to-SQL Agent</h3>
-                    <p class="project-card-desc">Open-source SDK for agentic text-to-SQL — no RAG, semantic layer, or schema descriptions required. Hits 95% zero-shot on the Spider benchmark across 80 tables from 20 schemas. 100+ stars on GitHub and featured in LangChain's Community Spotlight.</p>
-                    <p class="project-card-how"><strong>How it works:</strong> Hands the LLM one tool (<code>execute_sql</code>) and lets it explore the schema, query, and self-correct. Ships with an MCP server so any MCP-compatible client can query SQL databases in natural language.</p>
+                    <p class="project-card-desc">Frontier models can now chain hundreds or thousands of tool calls from a single prompt — reading each result and deciding what to do next. This unlocks a different architecture for text-to-SQL: instead of pre-computing which schema elements are relevant (RAG, semantic layers, etc), give the LLM one tool, <code>execute_sql</code>, and let it explore the schema, write queries, test them against real data, and self-correct.</p>
+                    <ul class="project-card-facts">
+                        <li>140+ stars on GitHub: <a href="https://github.com/Text2SqlAgent/text2sql-framework" target="_blank">github.com/Text2SqlAgent/text2sql-framework</a></li>
+                        <li>Listed by LangChain as a middleware integration: <a href="https://docs.langchain.com/oss/python/integrations/middleware" target="_blank">docs.langchain.com/oss/python/integrations/middleware</a></li>
+                        <li>Also distributed as an MCP server on PyPI + listed in the official Anthropic-managed MCP Registry: <a href="https://registry.modelcontextprotocol.io/?q=text2sql" target="_blank">registry.modelcontextprotocol.io/?q=text2sql</a></li>
+                    </ul>
                 </div>
                 <!-- Podcast -->
                 <div class="project-card">
@@ -852,6 +935,13 @@
             <h2 class="section-title">Substack</h2>
         </div>
         <div class="writings-grid fade-up">
+            <a href="https://cooper1122.substack.com/p/when-users-become-builders" target="_blank" class="writing-card">
+                <img src="assets/images/substack/article3-new.png" alt="" class="writing-card-img">
+                <div class="writing-card-text">
+                    <h3 class="writing-card-title">When Users Become Builders</h3>
+                    <div class="writing-card-date">May 25, 2026</div>
+                </div>
+            </a>
             <a href="https://substack.com/home/post/p-193926563" target="_blank" class="writing-card">
                 <img src="assets/images/substack/consider-sql.png" alt="" class="writing-card-img">
                 <div class="writing-card-text">
