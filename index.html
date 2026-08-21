@@ -135,30 +135,10 @@
             line-height: 1.7;
             color: var(--ink-light);
             max-width: 480px;
-            margin-bottom: 12px;
+            margin-bottom: 36px;
             font-weight: 300;
         }
 
-        .typewriter-line {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-style: italic;
-            min-height: 2.2rem;
-            margin-bottom: 36px;
-        }
-
-        .typewriter-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.3em;
-            background: var(--accent);
-            margin-left: 2px;
-            vertical-align: text-bottom;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
 
         .hero-links {
             display: flex;
@@ -748,9 +728,6 @@
         </div>
         <div class="hero-text">
             <h1 class="hero-name fade-up">Cooper<br>Penniman</h1>
-            <div class="typewriter-line fade-up">
-                <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
-            </div>
             <div class="hero-links fade-up">
                 <a href="mailto:cooperpenniman@gmail.com">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 7 8-7V20H4z"/></svg>
@@ -1008,35 +985,6 @@
 </div>
 
 <script>
-    // Typewriter
-    const words = ["Solution Designer", "Technologist", "Developer", "Strategist", "Collaborator"];
-    let wordIdx = 0, charIdx = 0, deleting = false;
-    const el = document.getElementById('typewriter-text');
-
-    function typeLoop() {
-        const word = words[wordIdx];
-        if (!deleting) {
-            el.textContent = word.substring(0, charIdx + 1);
-            charIdx++;
-            if (charIdx >= word.length) {
-                setTimeout(() => { deleting = true; typeLoop(); }, 1800);
-                return;
-            }
-            setTimeout(typeLoop, 70);
-        } else {
-            el.textContent = word.substring(0, charIdx);
-            charIdx--;
-            if (charIdx < 0) {
-                deleting = false;
-                charIdx = 0;
-                wordIdx = (wordIdx + 1) % words.length;
-                setTimeout(typeLoop, 400);
-                return;
-            }
-            setTimeout(typeLoop, 40);
-        }
-    }
-    typeLoop();
 
     // Scroll-triggered fade-in
     const obs = new IntersectionObserver((entries) => {
